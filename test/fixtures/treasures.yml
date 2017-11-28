@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  owner_id: 1
+  type_id: 1
+  storage_id: 1
+  trashed: MyString
+  title: MyString
+  description: MyString
+  special_note: MyString
+
+two:
+  owner_id: 1
+  type_id: 1
+  storage_id: 1
+  trashed: MyString
+  title: MyString
+  description: MyString
+  special_note: MyString
