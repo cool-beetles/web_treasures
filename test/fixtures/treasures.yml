@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+doll:
   owner_id: 1
   type_id: 1
   storage_id: 1
-  trashed: MyString
-  title: MyString
-  description: MyString
-  special_note: MyString
+  trashed: false
+  title: Barbie doll
+  description: my favorite doll
+  special_note: gift from Santa
 
-two:
+puzzle:
   owner_id: 1
   type_id: 1
   storage_id: 1
-  trashed: MyString
-  title: MyString
-  description: MyString
-  special_note: MyString
+  trashed: false
+  title: ocean view
+  description : ToDo
+  special_note: unused

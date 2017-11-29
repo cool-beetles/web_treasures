@@ -1,0 +1,11 @@
+ # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+my_address:
+  street: Gsiorowo
+  city: Olsztynek
+  zip_code: 11-015
+
+address_of_friend:
+  street: Okragla
+  city: Olsztyn
+  zip_code: 10-900

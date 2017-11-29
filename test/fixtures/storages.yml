@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
-  name: MyString
+house:
+  name: my house
   address_id: 1
 
-two:
-  name: MyString
+rental_place:
+  name: friend house
   address_id: 1

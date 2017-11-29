@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+owner:
+  first_name: Ada
+  last_name: Kucinska
+  age: 24
+  address_id: 1
+
+friend:
+  first_name: Adam
+  last_name: Kucinski
+  age: 4
+  address_id: 1
