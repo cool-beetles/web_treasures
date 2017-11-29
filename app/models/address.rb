@@ -1,4 +1,4 @@
 class Address < ApplicationRecord
-  belongs_to :storage
-  belongs_to :user
+  has_one :storage
+  has_one :user
 end

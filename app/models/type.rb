@@ -1,3 +1,3 @@
 class Type < ApplicationRecord
-  belongs_to :treasure
+  has_many :treasures
 end

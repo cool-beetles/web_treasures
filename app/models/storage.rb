@@ -1,4 +1,4 @@
 class Storage < ApplicationRecord
   has_many :treasures
-  belogs_to :address
+  belongs_to :address
 end
