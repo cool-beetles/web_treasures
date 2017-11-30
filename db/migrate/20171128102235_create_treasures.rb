@@ -1,7 +1,7 @@
 class CreateTreasures < ActiveRecord::Migration[5.1]
   def change
     create_table :treasures do |t|
-      t.belongs_to :owner_id
+      t.integer :owner_id
       t.integer :type_id
       t.integer :storage_id
       t.string :trashed
