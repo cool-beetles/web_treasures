@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171128105818) do
+ActiveRecord::Schema.define(version: 20171129145309) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "street"
@@ -28,6 +28,10 @@ ActiveRecord::Schema.define(version: 20171128105818) do
     t.date "return_date"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user"
+    t.integer "treasure"
+    t.index ["treasure"], name: "index_rentals_on_treasure"
+    t.index ["user"], name: "index_rentals_on_user"
   end
 
   create_table "storages", force: :cascade do |t|
@@ -35,6 +39,8 @@ ActiveRecord::Schema.define(version: 20171128105818) do
     t.integer "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "address"
+    t.index ["address"], name: "index_storages_on_address"
   end
 
   create_table "treasures", force: :cascade do |t|
@@ -47,6 +53,12 @@ ActiveRecord::Schema.define(version: 20171128105818) do
     t.string "special_note"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "user"
+    t.integer "type"
+    t.integer "storage"
+    t.index ["storage"], name: "index_treasures_on_storage"
+    t.index ["type"], name: "index_treasures_on_type"
+    t.index ["user"], name: "index_treasures_on_user"
   end
 
   create_table "types", force: :cascade do |t|
@@ -62,6 +74,8 @@ ActiveRecord::Schema.define(version: 20171128105818) do
     t.integer "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "address"
+    t.index ["address"], name: "index_users_on_address"
   end
 
 end
