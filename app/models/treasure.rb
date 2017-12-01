@@ -3,5 +3,5 @@ class Treasure < ApplicationRecord
   belongs_to :type
   belongs_to :storage
   belongs_to :owner, class_name: "User", foreign_key: 'owner_id'
-  validates_presence_of :owner, :type, :title 
+  validates :owner, :type, :title 
 end
