@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class RentalTest < ActiveSupport::TestCase
-  test "should not save treasure without owner, type or title" do
+  test "should not save rental without user and treasure" do
     user = User.new(first_name: "John", last_name: "Snow")
     type = Type.new(name: "Toys")
     treasure = Treasure.new(owner: user.id, type: type.id, title: "Darts")
