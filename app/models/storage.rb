@@ -1,4 +1,5 @@
 class Storage < ApplicationRecord
   has_many :treasures
-  belongs_to :address
+  belongs_to :address, optional: true
+  validates :name, length: { maximum: 15 }
 end
