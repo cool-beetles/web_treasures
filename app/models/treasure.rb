@@ -1,7 +1,7 @@
 class Treasure < ApplicationRecord
   has_many :rentals
   belongs_to :type
-  belongs_to :storage
+  belongs_to :storage, optional: true
   belongs_to :owner, class_name: "User", foreign_key: 'owner_id'
-  validates :owner, :type, :title 
+  validates_presence_of :owner, :type, :title 
 end
