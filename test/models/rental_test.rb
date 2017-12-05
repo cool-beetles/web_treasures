@@ -1,18 +1,24 @@
 require 'test_helper'
 
 class RentalTest < ActiveSupport::TestCase
-  test "should not save rental without user and treasure" do
     user = User.new(first_name: "John", last_name: "Snow")
     type = Type.new(name: "Toys")
-    treasure = Treasure.new(owner: user.id, type: type.id, title: "Darts")
+    treasure = Treasure.new(owner: user, type: type, title: "Darts")
 
-    rental = Rental.create(user: user.id, treasure: treasure.id)
-    assert_not rental.valid?
+  test "should save rental with user and treasure" do
+    rental = Rental.create(user: user, treasure: treasure)
+    assert rental.valid?
+  end
 
-    rental = Rental.create(user: user.id)
+  test "should not save rental without treasure" do
+    rental = Rental.create(user: user)
     assert_not rental.valid?
+    assert_equal [:treasure], rental.errors.keys
+  end
 
-    rental = Rental.create(treasure: treasure.id)
+  test "should not save rental without user" do
+    rental = Rental.create(treasure: treasure)
     assert_not rental.valid?
+    assert_equal [:user], rental.errors.keys
   end
 end
