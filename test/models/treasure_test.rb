@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TreasureTest < ActiveSupport::TestCase
-
   test "should save treasure with owner, type or title" do 
     treasure = Treasure.create(owner: users(:owner), type: types(:toy), title: "Barbie")
     assert treasure.valid?
