@@ -1,18 +1,18 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 doll:
-  owner_id: 1
-  type_id: 1
-  storage_id: 1
+  owner: owner
+  type: toy
+  storage: house
   trashed: false
   title: Barbie doll
   description: my favorite doll
   special_note: gift from Santa
 
 puzzle:
-  owner_id: 1
-  type_id: 1
-  storage_id: 1
+  owner: friend
+  type: toy
+  storage: house 
   trashed: false
   title: ocean view
   description : ToDo

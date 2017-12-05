@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 first_rental:
-  user_id: 1
-  treasure_id: 1
+  user: friend
+  treasure: doll
   start_date: 2017-11-29
   due_date: 2017-12-29
   return_date: 2017-12-23
 
 second_rental:
-  user_id: 1
-  treasure_id: 1
+  user: owner
+  treasure_id: puzzle
   start_date: 2017-10-25
   due_date: 2017-11-25
   return_date: 2017-11-05
