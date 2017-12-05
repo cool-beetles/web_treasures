@@ -1,8 +1,4 @@
 Rails.application.routes.draw do
-  get 'treasures/index'
-  get 'treasures/show'
-  get 'treasures/new'
-  get 'treasures/create'
 
   resources :treasures
 

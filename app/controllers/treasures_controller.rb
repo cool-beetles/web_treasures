@@ -27,6 +27,6 @@ class TreasuresController < ActionController::Base
     owner = User.where(id: params[:owner_id]).first
     type = Type.where(id: params[:type_id]).first
     storage = Storage.where(id: params[:storage_id]).first
-    params.require(:treasure).permit(:owner, :type, :title, :description, :special_note, :storage, :trashed)
+    params.require(:treasures).permit(:owner, :type, :title, :description, :special_note, :storage, :trashed)
   end
 end

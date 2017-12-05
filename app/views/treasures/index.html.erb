@@ -11,13 +11,17 @@
 <body>
   <h1>List of treasures:</h1>
 
-  <ul id = "treasures">
-    <% @treasures.each do |t| %>
-      <li><%= link_to t.title, {:action => 'show', :id => t.id} -%>:
-      <%= link_to t.type.name, {:action => 'show', :id => t.id} -%> </li>
-    <% end %>
-  </ul>
+  <% if @treasures.blank? %>
+    <p>There are not any treasures currently in the system.</p>
+  <% else %>
+    <ul id = "treasures">
+      <% @treasures.each do |t| %>
+        <li><%= link_to t.title, { action: 'show', id: t.id } %>
+        <%= link_to t.type, { action: 'show', id: t.id } %> </li>
+      <% end %>
+    </ul>
+  <% end %>
 
-  <%= link_to 'Add new treasure', {:action => 'new'} %>
+  <p><%= link_to 'Add new treasure', { action: 'new' } %></p>
 </body>
 </html>
