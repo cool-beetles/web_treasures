@@ -1,8 +1,23 @@
-<h1>List of treasures:</h1>
+<! DOCTYPE HTML>
 
-<ul id = "treasures">
-  <% @treasures.each do |t| %>
-    <li><%= link_to t.title, {:action => 'show', :id => t.id} -%>:
-    <%= link_to t.type.name, {:action => 'show', :id => t.id} -%> </li>
-  <% end %>
-</ul>
+<html lang="en">
+<head>
+  <title>Web treasures</title>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
+</head>
+
+<body>
+  <h1>List of treasures:</h1>
+
+  <ul id = "treasures">
+    <% @treasures.each do |t| %>
+      <li><%= link_to t.title, {:action => 'show', :id => t.id} -%>:
+      <%= link_to t.type.name, {:action => 'show', :id => t.id} -%> </li>
+    <% end %>
+  </ul>
+
+  <%= link_to 'Add new treasure', {:action => 'new'} %>
+</body>
+</html>
