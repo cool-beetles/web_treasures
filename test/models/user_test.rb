@@ -7,13 +7,13 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should not save user with first name shorter than 3 letters" do 
-    user = User.create(first_name: users(:to_short_first_name).first_name, last_name: users(:to_short_first_name).last_name)
+    user = User.create(first_name: users(:too_short_first_name).first_name, last_name: users(:too_short_first_name).last_name)
     assert_not user.valid?
     assert_equal [:first_name], user.errors.keys
   end 
 
   test "should not save user with last name shorter than 3 letters" do  
-    user = User.create(first_name: users(:to_short_last_name).first_name , last_name: users(:to_short_last_name).last_name)
+    user = User.create(first_name: users(:too_short_last_name).first_name , last_name: users(:too_short_last_name).last_name)
     assert_not user.valid?
     assert_equal [:last_name], user.errors.keys
   end
