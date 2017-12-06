@@ -13,13 +13,13 @@
 
   <% if @treasures.blank? %>
     <p>There are not any treasures currently in the system.</p>
-  <% end %>
+  <% else %>
     <ul>
       <% @treasures.each do |t| %>
-        <li><%= link_to t.title, { action: 'show', id: t.id } %>
-        <%= link_to t.type, { action: 'show', id: t.id } %> </li>
+        <li><%= link_to t.title, t %>
       <% end %>
     </ul>
+  <% end %>
 
   <p><%= link_to 'Add new treasure', { action: 'new' } %></p>
 </body>

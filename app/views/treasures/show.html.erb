@@ -12,8 +12,8 @@
   <h1><%= @treasure.title %></h1>
 
   <p>
-    <strong>Owner: </strong> <%= @treasure.owner %><br />
-    <strong>Type:</strong> <%= @treasure.type %><br />
+    <strong>Owner: </strong> <%= User.all.first.first_name %><br />
+    <strong>Type:</strong> <%= Type.all.first.name %><br />
     <strong>Trashed: </strong> <%= @treasure.trashed %><br />
     <strong>Description:</strong> <%= @treasure.description %><br />
     <strong>Special note:</strong> <%= @treasure.special_note %><br />
