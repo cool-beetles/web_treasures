@@ -19,13 +19,15 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "should not save user without first name" do
-    user = User.new(last_name: users(:friend))
+    user = users(:friend)
+    user.first_name = nil
     assert_not user.valid?
     assert_equal [:first_name], user.errors.keys
   end
 
   test "should not save user without last name" do
-    user = User.new(first_name: users(:owner))
+    user = users(:friend)
+    user.last_name = nil
     assert_not user.valid?
     assert_equal [:last_name], user.errors.keys
   end
