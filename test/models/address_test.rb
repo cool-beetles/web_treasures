@@ -1,23 +1,24 @@
 require 'test_helper'
 
 class AddressTest < ActiveSupport::TestCase
+  def setup
+    @address = addresses(:my_address)
+  end
+
   test "should save address with proper zip_code street and city" do 
-    address = addresses(:my_address)
-    assert address.valid?
+    assert @address.valid?
   end
 
   test "should not save address without street" do 
-    address = addresses(:my_address)
-    address.street = nil
-    assert_not address.valid?
-    assert_equal [:street], address.errors.keys
+    @address.street = nil
+    assert_not @address.valid?
+    assert_equal [:street], @address.errors.keys
   end
 
   test "should not save address without city" do 
-    address = addresses(:my_address)
-    address.city = nil
-    assert_not address.valid?
-    assert_equal [:city], address.errors.keys
+    @address.city = nil
+    assert_not @address.valid?
+    assert_equal [:city], @address.errors.keys
   end
   
   test "should not save address with zip_code longer than 7 characters" do 

@@ -1,9 +1,12 @@
 require 'test_helper'
 
 class TypeTest < ActiveSupport::TestCase
+  def setup
+    @type = types(:toy) 
+  end
+  
   test "should save type with proper name" do 
-    type = types(:toy)
-    assert type.valid?
+    assert @type.valid?
   end
 
   test "should not save type with name longer than 10 letters" do  

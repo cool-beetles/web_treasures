@@ -27,5 +27,3 @@ class TreasureTest < ActiveSupport::TestCase
     assert_equal [:type], @treasure.errors.keys
   end
 end
-
-#teardown
