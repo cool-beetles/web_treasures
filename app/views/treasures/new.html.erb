@@ -19,12 +19,12 @@
 
     <div>
       <%= f.label :type %>
-      <%= f.text_field :type %>
+      <%= f.collection_select :type_id, Type.all, :id, :name %>
     </div>
 
     <div>
       <%= f.label :owner %>
-      <%= f.text_field :owner %>
+      <%= f.collection_select :owner_id, User.all, :id, :first_name %>
     </div>  
 
     <div>
@@ -39,7 +39,7 @@
 
     <div>
       <%= f.label :storage %>
-      <%= f.text_field :storage %>
+      <%= f.collection_select :storage_id, Storage.all, :id, :name %>
     </div>
     
     <div>
