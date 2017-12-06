@@ -12,21 +12,13 @@ class TreasuresController < ActionController::Base
   end
 
   def create
-    @treasure = Treasure.new(treasure_params)
+    @treasure = Treasure.create(params[:treasures])
 
     if @treasure.save
-      redirect_to @treasure
+      redirect_to @treasure 
+      render action: 'show'
     else
       render action: 'new'
     end
-  end
-
-  private
-
-  def treasure_params
-    owner = User.where(id: params[:owner_id]).first
-    type = Type.where(id: params[:type_id]).first
-    storage = Storage.where(id: params[:storage_id]).first
-    params.require(:treasures).permit(:owner, :type, :title, :description, :special_note, :storage, :trashed)
   end
 end

@@ -12,10 +12,9 @@
   <h1><%= @treasure.title %></h1>
 
   <p>
-    <strong>Owner: </strong> <%= @treasure.owner.first_name %><br />
-    <strong>Type:</strong> <%= @treasure.type.name %><br />
+    <strong>Owner: </strong> <%= @treasure.owner %><br />
+    <strong>Type:</strong> <%= @treasure.type %><br />
     <strong>Trashed: </strong> <%= @treasure.trashed %><br />
-    <strong>Title:</strong> <%= @treasure.title %><br />
     <strong>Description:</strong> <%= @treasure.description %><br />
     <strong>Special note:</strong> <%= @treasure.special_note %><br />
   </p>
