@@ -9,8 +9,3 @@ address_of_friend:
   street: Okragla
   city: Olsztyn
   zip_code: 10-900
-
-address_for_test:
-  street: Wilczynskiego
-  city: Warszawa
-  zip_code: 100-1100

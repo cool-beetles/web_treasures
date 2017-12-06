@@ -18,13 +18,13 @@
     </div>
 
     <div>
-      <%= f.label :type_ID %>
-      <%= f.number_field :type_id %>
+      <%= f.label :type %>
+      <%= f.text_field :type %>
     </div>
 
     <div>
-      <%= f.label :owner_ID %>
-      <%= f.number_field :owner_id %>
+      <%= f.label :owner %>
+      <%= f.text_field :owner %>
     </div>  
 
     <div>
@@ -38,8 +38,8 @@
     </div>
 
     <div>
-      <%= f.label :storage_ID %>
-      <%= f.number_field :storage_id %>
+      <%= f.label :storage %>
+      <%= f.text_field :storage %>
     </div>
     
     <div>
@@ -61,6 +61,6 @@
     <% end %>
   <% end %>
 
-  <%= link_to 'Back', { :action => 'index' } %>
+  <%= link_to 'Back', { action: 'index' } %>
 </body>
 </html>

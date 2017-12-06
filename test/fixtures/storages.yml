@@ -4,10 +4,6 @@ house:
   name: my house
   address_id: my_address
 
-house_of_friend:
-  name: House of my friend Emily
-  address_id: address_of_friend
-
 rental_place:
   name: friend house
   address_id: address_of_friend

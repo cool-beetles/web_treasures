@@ -11,15 +11,3 @@ friend:
   last_name: Kucinski
   age: 4
   address_id: address_of_friend
-
-too_short_first_name:
-  first_name: Jo
-  last_name: Snow
-  age: 34
-  address_id: address_of_friend
-
-too_short_last_name:
-  first_name: Johm
-  last_name: Sn
-  age: 36
-  address_id: my_address

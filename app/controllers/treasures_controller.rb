@@ -4,7 +4,7 @@ class TreasuresController < ActionController::Base
   end
 
   def show
-    @treasure = Treasure.find(params[:id])
+    @treasure = Treasure.where(id: params[:id]).first
   end
 
   def new
