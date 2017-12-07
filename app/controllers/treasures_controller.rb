@@ -1,4 +1,4 @@
-class TreasuresController < ActionController::Base
+class TreasuresController < ApplicationController
   def index
     @treasures = Treasure.all
   end
@@ -17,22 +17,29 @@ class TreasuresController < ActionController::Base
     if @treasure.save
       redirect_to @treasure 
     else
-      render action: 'new'
+      render :new
     end
   end
 
-  def edit
+  def edit    
     @treasure = Treasure.find(params[:id])
-    render action: 'edit'
+    render :edit
   end
 
   def update
     @treasure = Treasure.find(params[:id])
+    
     if @treasure.update(params_treasure)
       redirect_to @treasure
     else
       render :edit
     end
+  end
+
+  def destroy
+    @treasure = Treasure.find(params[:id])
+    @treasure.destroy
+    redirect_to treasures_path
   end
 
   private 
