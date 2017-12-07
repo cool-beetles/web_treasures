@@ -1,26 +1,13 @@
-<! DOCTYPE HTML>
+<h1>List of treasures:</h1>
 
-<html lang="en">
-<head>
-  <title>Web treasures</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
-</head>
+<% if @treasures.blank? %>
+  <p>There are not any treasures currently in the system.</p>
+<% else %>
+  <ul>
+    <% @treasures.each do |t| %>
+      <li><%= link_to t.title, t %>
+    <% end %>
+  </ul>
+<% end %>
 
-<body>
-  <h1>List of treasures:</h1>
-
-  <% if @treasures.blank? %>
-    <p>There are not any treasures currently in the system.</p>
-  <% else %>
-    <ul>
-      <% @treasures.each do |t| %>
-        <li><%= link_to t.title, t %>
-      <% end %>
-    </ul>
-  <% end %>
-
-  <p><%= link_to 'Add new treasure', { action: 'new' } %></p>
-</body>
-</html>
+<p><%= link_to 'Add new treasure', { action: 'new' } %></p>

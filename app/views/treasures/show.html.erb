@@ -1,26 +1,13 @@
-<! DOCTYPE HTML>
+<h1><%= @treasure.title %></h1>
 
-<html lang="en">
-<head>
-  <title>Web treasures</title>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://fonts.googleapis.com/css?family=Rokkitt" rel="stylesheet">
-</head>
+<p>
+  <strong>Owner: </strong> <%= @treasure.owner.try(:first_name) %><br />
+  <strong>Type: </strong> <%= @treasure.type.try(:name) %><br />   
+  <strong>Trashed: </strong> <%= @treasure.trashed %><br />
+  <strong>Description:</strong> <%= @treasure.description %><br />
+  <strong>Special note:</strong> <%= @treasure.special_note %><br />
+</p>
 
-<body>
-  <h1><%= @treasure.title %></h1>
+<hr/>
 
-  <p>
-    <strong>Owner: </strong> <%= @treasure.owner.try(:first_name) %><br />
-    <strong>Type: </strong> <%= @treasure.type.try(:name) %><br />   
-    <strong>Trashed: </strong> <%= @treasure.trashed %><br />
-    <strong>Description:</strong> <%= @treasure.description %><br />
-    <strong>Special note:</strong> <%= @treasure.special_note %><br />
-  </p>
-
-  <hr/>
-
-  <%= link_to 'Back', { action: 'index' } %>
-</body>
-</html>
+<%= link_to 'Back', { action: 'index' } %>
