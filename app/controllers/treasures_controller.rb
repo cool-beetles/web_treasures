@@ -38,7 +38,12 @@ class TreasuresController < ApplicationController
 
   def destroy
     @treasure = Treasure.find(params[:id])
-    @treasure.destroy
+
+    if @treasure.trashed == "0"
+      @treasure.trashed = true
+      @treasure.save
+    end
+
     redirect_to treasures_path
   end
 
