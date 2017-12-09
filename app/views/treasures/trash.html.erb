@@ -1,0 +1,14 @@
+<h1>Trashed treasures list: </h1>
+
+<% if @treasures.blank? %>
+  <p>There are not any trashed treasures...</p>
+<% else %>
+  <ul>
+    <% if @treasure.trashed != "0" %>
+      <li><%= link_to @treasure.title, @treasure %>
+      <%= link_to @treasuret.type.name, @treasure %> </li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to 'Back', { action: 'index' } %>

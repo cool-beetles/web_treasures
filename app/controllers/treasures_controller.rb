@@ -1,6 +1,6 @@
 class TreasuresController < ApplicationController
   def index
-    @treasures = Treasure.all
+    @treasures = Treasure.trashed
   end
 
   def show

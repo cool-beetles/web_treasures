@@ -7,10 +7,11 @@
     <% @treasures.each do |t| %>
       <% if t.trashed == "0" %>
         <li><%= link_to t.title, t%>
-        <%= link_to t.type.name, t %>
+        <%= link_to t.type.name, t %> </li>
       <% end %>
     <% end %>
   </ul>
 <% end %>
 
 <p><%= link_to 'Add new treasure', { action: 'new' } %></p>
+<p><%= link_to 'Trashed treasures', { action: 'trash' } %></p>

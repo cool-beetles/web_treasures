@@ -1,4 +1,5 @@
 class Treasure < ApplicationRecord
+  scope :trashed, -> { where(trashed: 0) }
   has_many :rentals
   belongs_to :type
   belongs_to :storage, optional: true
