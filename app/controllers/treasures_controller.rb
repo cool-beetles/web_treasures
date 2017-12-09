@@ -1,6 +1,6 @@
 class TreasuresController < ApplicationController
   def index
-    @treasures = Treasure.trashed
+    @treasures = Treasure.untrashed
   end
 
   def show
@@ -45,6 +45,10 @@ class TreasuresController < ApplicationController
     end
 
     redirect_to treasures_path
+  end
+
+  def trash
+    @treasures = Treasure.trashed
   end
 
   private 

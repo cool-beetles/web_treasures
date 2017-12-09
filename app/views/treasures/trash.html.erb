@@ -4,9 +4,9 @@
   <p>There are not any trashed treasures...</p>
 <% else %>
   <ul>
-    <% if @treasure.trashed != "0" %>
-      <li><%= link_to @treasure.title, @treasure %>
-      <%= link_to @treasuret.type.name, @treasure %> </li>
+    <% @treasures.each do |t| %>
+    <li><%= link_to t.title,  t %>
+    <%= link_to t.type.name, t %> </li>
     <% end %>
   </ul>
 <% end %>
