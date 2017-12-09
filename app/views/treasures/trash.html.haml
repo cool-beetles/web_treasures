@@ -1,0 +1,10 @@
+%h1 Trashed treasures list:
+- if @treasures.blank?
+  %p There are not any trashed treasures...
+- else
+  %ul
+    - @treasures.each do |t|
+      %li
+        = link_to t.title,  t
+        = link_to t.type.name, t
+= link_to 'Back', { action: 'index' }

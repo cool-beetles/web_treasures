@@ -1,0 +1,21 @@
+%div
+  = f.label :title
+  = f.text_field :title
+%div
+  = f.label :type
+  = f.collection_select :type_id, Type.all, :id, :name
+%div
+  = f.label :owner
+  = f.collection_select :owner_id, User.all, :id, :first_name
+%div
+  = f.label :description
+  = f.text_field :description
+%div
+  = f.label :special_note
+  = f.text_field :special_note
+%div
+  = f.label :storage
+  = f.collection_select :storage_id, Storage.all, :id, :name
+%div
+  = f.label :trashed
+  = f.check_box :trashed

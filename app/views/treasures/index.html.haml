@@ -1,0 +1,11 @@
+%h1 List of treasures:
+- if @treasures.blank?
+  %p There are not any treasures currently in the system.
+- else
+  %ul
+    - @treasures.each do |t|
+      %li
+        = link_to t.title, t
+        = link_to t.type.name, t
+%p= link_to 'Add new treasure', { action: 'new' }
+%p= link_to 'Trashed treasures', { action: 'trash' }

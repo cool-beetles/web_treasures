@@ -1,0 +1,11 @@
+%h1 Add new treasure
+= form_for @treasure do |f|
+  = render partial: 'form', locals: { f: f }
+  = f.submit "Create"
+  - if @treasure.errors.any?
+    %div
+      %h3 Please fix these errors:
+      %ul
+        - @treasure.errors.full_messages.each do |msg|
+          %li= msg
+= link_to 'Back', { action: 'index' }
