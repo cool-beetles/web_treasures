@@ -38,11 +38,8 @@ class TreasuresController < ApplicationController
 
   def destroy
     @treasure = Treasure.find(params[:id])
-
-    if @treasure.trashed == false
-      @treasure.trashed = true
-      @treasure.save
-    end
+    @treasure.trashed = true
+    @treasure.save
 
     redirect_to treasures_path
   end
@@ -51,7 +48,9 @@ class TreasuresController < ApplicationController
     @treasures = Treasure.trashed
   end
 
-  private 
+  helper_method :current_user
+
+  private
 
   def params_treasure
     params.require(:treasure).permit(:owner_id, :type_id, :title, :description, :special_note, :storage_id, :trashed)
