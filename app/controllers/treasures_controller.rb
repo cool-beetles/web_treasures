@@ -39,7 +39,7 @@ class TreasuresController < ApplicationController
   def destroy
     @treasure = Treasure.find(params[:id])
 
-    if @treasure.trashed == "0"
+    if @treasure.trashed == false
       @treasure.trashed = true
       @treasure.save
     end
