@@ -14,6 +14,7 @@ CREATE INDEX "index_treasures_on_owner_id" ON "treasures" ("owner_id");
 CREATE INDEX "index_treasures_on_type_id" ON "treasures" ("type_id");
 CREATE INDEX "index_treasures_on_storage_id" ON "treasures" ("storage_id");
 CREATE INDEX "index_storages_on_owner_id" ON "storages" ("owner_id");
+CREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar, "password" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
 INSERT INTO "schema_migrations" (version) VALUES
 ('20171128102235'),
 ('20171128102438'),
@@ -35,6 +36,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171201105807'),
 ('20171201105923'),
 ('20171209141451'),
-('20171210174435');
+('20171210174435'),
+('20171210225145');
 
 
