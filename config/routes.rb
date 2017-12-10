@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'treasures/trash'
 
   resources :treasures
+  resources :storages
 
   root 'treasures#index'
 
