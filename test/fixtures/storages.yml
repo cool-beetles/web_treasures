@@ -2,8 +2,10 @@
 
 house:
   name: my house
-  address_id: my_address
+  owner: owner
+  address: my_address
 
 rental_place:
   name: friend house
-  address_id: address_of_friend
+  owner: friend
+  address: address_of_friend
