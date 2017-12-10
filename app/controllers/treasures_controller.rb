@@ -1,6 +1,7 @@
 class TreasuresController < ApplicationController
   def index
     @treasures = Treasure.untrashed
+    @treasures = @treasures.where(owner_id: current_user.id)
   end
 
   def show
@@ -46,11 +47,16 @@ class TreasuresController < ApplicationController
 
   def trash
     @treasures = Treasure.trashed
+    @treasures = @treasures.where(owner_id: current_user.id)
   end
 
   helper_method :current_user
 
   private
+
+  def current_user
+    @current_user ||= User.first
+  end
 
   def params_treasure
     params.require(:treasure).permit(:owner_id, :type_id, :title, :description, :special_note, :storage_id, :trashed)
