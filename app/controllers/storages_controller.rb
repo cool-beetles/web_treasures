@@ -23,7 +23,7 @@ class StoragesController < ApplicationController
   end
 
   def edit
-    @storage = Storage.find(params[:id])
+    @storage = Storage.find(params[:id])  
   end
 
   def update

@@ -7,4 +7,9 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %nav
+      %div
+        = link_to 'My treasures', { action: 'index', controller: 'treasures' }
+        = link_to 'My storages', { action: 'index', controller: 'storages' }
+        = link_to 'My rentals'
     = yield
