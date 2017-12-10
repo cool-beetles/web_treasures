@@ -5,9 +5,6 @@
   = f.label :type
   = f.collection_select :type_id, Type.all, :id, :name
 %div
-  = f.label :owner
-  = f.collection_select :owner_id, User.all, :id, :first_name
-%div
   = f.label :description
   = f.text_field :description
 %div

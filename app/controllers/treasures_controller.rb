@@ -1,7 +1,6 @@
 class TreasuresController < ApplicationController
   def index
-    @treasures = Treasure.untrashed
-    @treasures = @treasures.where(owner_id: current_user.id)
+    @treasures = current_user.treasures.untrashed
   end
 
   def show
@@ -13,8 +12,8 @@ class TreasuresController < ApplicationController
   end
 
   def create
-    @treasure = Treasure.new(params_treasure)
-
+    @treasure = current_user.treasures.build(params_treasure)
+   
     if @treasure.save
       redirect_to @treasure 
     else
@@ -46,19 +45,18 @@ class TreasuresController < ApplicationController
   end
 
   def trash
-    @treasures = Treasure.trashed
-    @treasures = @treasures.where(owner_id: current_user.id)
+    @treasures = current_user.treasures.trashed
   end
 
   helper_method :current_user
-
-  private
 
   def current_user
     @current_user ||= User.first
   end
 
+  private
+  
   def params_treasure
-    params.require(:treasure).permit(:owner_id, :type_id, :title, :description, :special_note, :storage_id, :trashed)
+    params.require(:treasure).permit(:type_id, :title, :description, :special_note, :storage_id, :trashed)
   end
 end
