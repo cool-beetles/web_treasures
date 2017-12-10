@@ -23,7 +23,6 @@ class TreasuresController < ApplicationController
 
   def edit    
     @treasure = Treasure.find(params[:id])
-    render :edit
   end
 
   def update

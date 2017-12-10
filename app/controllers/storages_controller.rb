@@ -9,6 +9,7 @@ class StoragesController < ApplicationController
 
   def new
     @storage = Storage.new
+    @storage.build_address
   end
 
   def create
@@ -23,7 +24,6 @@ class StoragesController < ApplicationController
 
   def edit
     @storage = Storage.find(params[:id])
-    render :edit    
   end
 
   def update
@@ -39,7 +39,6 @@ class StoragesController < ApplicationController
   def destroy
     @storage = Storage.find(params[:id])
     @storage.destroy
-    @storage.save
 
     redirect_to storages_path
   end
@@ -47,6 +46,6 @@ class StoragesController < ApplicationController
   private
 
   def params_storage
-    params.require(:storage).permit(:name, :address_id)
+    params.require(:storage).permit(:name, address_attributes: [:id, :street, :city, :zip_code])
   end
 end
