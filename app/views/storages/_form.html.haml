@@ -1,0 +1,6 @@
+%div
+  = f.label :name
+  = f.text_field :name
+%div
+  = f.label :address
+  = f.collection_select :address_id, Address.all, :id, :street

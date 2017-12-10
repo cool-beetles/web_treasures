@@ -1,6 +1,6 @@
 class StoragesController < ApplicationController
   def index
-    @storage = current_user.storages
+    @storages = current_user.storages
   end
 
   def show
@@ -47,6 +47,6 @@ class StoragesController < ApplicationController
   private
 
   def params_storage
-        params.require(:storage).permit(:name, :address_id)
-      end
+    params.require(:storage).permit(:name, :address_id)
+  end
 end

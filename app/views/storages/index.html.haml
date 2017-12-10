@@ -1,0 +1,9 @@
+%h1 List of storages:
+- if @storages.blank?
+  %p There are not any storages currently in the system.
+- else
+  %ul
+    - @storages.each do |t|
+      %li
+        = link_to t.name, t
+%p= link_to 'Add new storage', { action: 'new' }

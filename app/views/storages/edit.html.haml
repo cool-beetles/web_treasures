@@ -1,0 +1,9 @@
+%h1 Edit storage
+= form_for @storage do |f|
+  = render partial: 'form', locals: { f: f }
+  = f.submit "Edit storage"
+- if @storage.errors.any?
+  %h3 Please fix these errors:
+  %ul
+    - @storage.errors.full_messages.each do |msg|
+      %li= msg
