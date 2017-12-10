@@ -2,7 +2,7 @@ CREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY);
 CREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
 CREATE TABLE "types" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
 CREATE TABLE "addresses" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "street" varchar DEFAULT NULL, "city" varchar DEFAULT NULL, "zip_code" varchar DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
-CREATE TABLE "storages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "address_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
+CREATE TABLE "storages" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar DEFAULT NULL, "address_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, "owner_id" integer);
 CREATE INDEX "index_storages_on_address_id" ON "storages" ("address_id");
 CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "first_name" varchar DEFAULT NULL, "last_name" varchar DEFAULT NULL, "age" integer DEFAULT NULL, "address_id" integer DEFAULT NULL, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL);
 CREATE INDEX "index_users_on_address_id" ON "users" ("address_id");
@@ -13,6 +13,7 @@ CREATE TABLE "treasures" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "owne
 CREATE INDEX "index_treasures_on_owner_id" ON "treasures" ("owner_id");
 CREATE INDEX "index_treasures_on_type_id" ON "treasures" ("type_id");
 CREATE INDEX "index_treasures_on_storage_id" ON "treasures" ("storage_id");
+CREATE INDEX "index_storages_on_owner_id" ON "storages" ("owner_id");
 INSERT INTO "schema_migrations" (version) VALUES
 ('20171128102235'),
 ('20171128102438'),
@@ -33,6 +34,7 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20171201105555'),
 ('20171201105807'),
 ('20171201105923'),
-('20171209141451');
+('20171209141451'),
+('20171210174435');
 
 
