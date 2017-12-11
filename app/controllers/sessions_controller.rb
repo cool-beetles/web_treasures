@@ -5,12 +5,12 @@ class SessionsController < ApplicationController
   def create
     @account = Account.find_by(params[:email]) 
 
-    if @account == @account.password
+    if @account.password == Account.find_by(params[:password]).password
       session[:user_id] == @account.user_id
       @account.save
-      redirect_to root_url
+      redirect_to treasures_path
     else
-      render :new
+      redirect_to root_path
     end 
   end
 end
