@@ -3,10 +3,10 @@ class SessionsController < ApplicationController
   end
 
   def create
-    @account = Account.find_by(params[:email]) 
+    @account = Account.find_by(email: params[:session][:email]) 
 
-    if @account.password == Account.find_by(params[:password]).password
-      session[:user_id] == @account.user_id
+    if @account == Account.find_by(password: params[:session][:password])
+      session[:user_id] = @account.user_id
       @account.save
       redirect_to treasures_path
     else
