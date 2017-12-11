@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
   get 'treasures/trash'
+  get 'sessions/login' => 'sessions#new'
+  post 'sessions/login' => 'sessions#create'
 
   resources :treasures
   resources :storages
   resources :welcome
+  resources :sessions
 
   root 'welcome#index'
 
