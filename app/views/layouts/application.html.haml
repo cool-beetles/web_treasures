@@ -16,6 +16,7 @@
         = link_to 'My rentals'
         - if current_user.nil?
           = link_to 'Login', { action: 'new', controller: 'sessions'}
+          = link_to 'Create an account', {action: 'new', controller: 'accounts'}
         - else
           = link_to 'Logout', {action: 'destroy', controller: 'sessions'}
     = yield

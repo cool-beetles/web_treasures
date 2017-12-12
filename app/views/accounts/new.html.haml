@@ -1,0 +1,25 @@
+%h1 Add an account:
+= form_for @account do |f|
+  %div
+    = f.label :email
+    = f.text_field :email
+    =f.fields_for :user do |u|
+      %div
+        = u.label :first_name
+        = u.text_field :first_name
+      %div
+        = u.label :last_name
+        = u.text_field :last_name
+  %div
+    = f.label :password
+    = f.password_field :password
+  %div
+    = f.label :password_confirmation
+    = f.password_field :password_confirmation
+    - if @account.errors.any?
+      %div
+        %h3 Please fix these errors:
+        %ul
+          - @account.errors.full_messages.each do |msg|
+            %li= msg 
+  = f.submit 'Create'

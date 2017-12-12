@@ -3,11 +3,13 @@ Rails.application.routes.draw do
   get 'sessions/login' => 'sessions#new'
   post 'sessions/login' => 'sessions#create'
   get 'sessions/logout' => 'sessions#destroy'
+  get 'accounts/register' => 'accounts#new'
 
   resources :treasures
   resources :storages
   resources :welcome
   resources :sessions
+  resources :accounts
 
   root 'welcome#index'
 
