@@ -1,4 +1,6 @@
 class TreasuresController < ApplicationController
+  before_action :require_login
+
   def index
     @treasures = current_user.treasures.untrashed
   end

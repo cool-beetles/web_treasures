@@ -1,4 +1,6 @@
 class StoragesController < ApplicationController
+  before_action :require_login
+  
   def index
     @storages = current_user.storages
   end
