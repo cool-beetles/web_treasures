@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     @account = Account.find_by(email: params[:session][:email]) 
 
-    if @account != nil && @account == Account.find_by(password_digest: params[:session][:password_digest])
+    if @account != nil && params[:session][:password_digest] == @account.password_digest
       session[:user_id] = @account.user_id
       flash[:success] = 'You are log in!'
       redirect_to treasures_path
