@@ -4,20 +4,19 @@ class SessionsController < ApplicationController
 
   def create
     @account = Account.find_by(email: params[:session][:email]) 
-
-    if @account == Account.find_by(password: params[:session][:password])
+    
+    if @account != nil && @account == Account.find_by(password_digest: params[:session][:password_digest])
       session[:user_id] = @account.user_id
-      @account.save
       flash[:success] = 'You are log in!'
       redirect_to treasures_path
-    else
+    else      
       flash[:alert] =  'You should have an account'
       redirect_to root_path
     end 
   end
 
   def destroy
-    @account = Account.find_by(user_id: session[:user_id])
+    @account = Account.find([:id])
     @account.destroy
     flash[:success] = 'You are log out!'
     redirect_to root_path
