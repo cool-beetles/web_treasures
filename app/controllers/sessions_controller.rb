@@ -15,4 +15,11 @@ class SessionsController < ApplicationController
       redirect_to root_path
     end 
   end
+
+  def destroy
+    @account = Account.find_by(user_id: session[:user_id])
+    @account.destroy
+    flash[:success] = 'You are log out!'
+    redirect_to root_path
+  end
 end

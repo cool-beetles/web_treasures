@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'treasures/trash'
   get 'sessions/login' => 'sessions#new'
   post 'sessions/login' => 'sessions#create'
+  get 'sessions/logout' => 'sessions#destroy'
 
   resources :treasures
   resources :storages
