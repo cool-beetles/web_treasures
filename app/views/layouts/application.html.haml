@@ -7,6 +7,8 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
   %body
+    %div  
+      = render partial: 'sessions/flash_message'
     %nav
       %div
         = link_to 'My treasures', { action: 'index', controller: 'treasures' }
