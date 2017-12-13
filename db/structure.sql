@@ -191,7 +191,7 @@ CREATE TABLE treasures (
     owner_id integer,
     type_id integer,
     storage_id integer,
-    trashed character varying,
+    trashed boolean,
     title character varying,
     description character varying,
     special_note character varying,
