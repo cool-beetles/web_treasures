@@ -16,7 +16,6 @@ class StoragesController < ApplicationController
 
   def create
     @storage = current_user.storages.build(params_storage)
-   binding.pry
     if @storage.save
       redirect_to @storage 
     else
