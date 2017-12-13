@@ -4,7 +4,7 @@ class CreateTreasures < ActiveRecord::Migration[5.1]
       t.integer :owner_id
       t.integer :type_id
       t.integer :storage_id
-      t.string :trashed
+      t.boolean :trashed
       t.string :title
       t.string :description
       t.string :special_note
