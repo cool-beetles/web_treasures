@@ -6,6 +6,7 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(params_account)
+    binding.pry
     if @account.save
       redirect_to treasures_path
     else
@@ -16,6 +17,6 @@ class AccountsController < ApplicationController
   private
 
   def params_account
-    params.require(:account).permit(:email, :password, :password_confirmation, user_attributes: [:first_name, :last_name])
+    params.require(:account).permit(:email, :password, :password_confirmation, user_attributes: [:id, :first_name, :last_name])
   end
 end
