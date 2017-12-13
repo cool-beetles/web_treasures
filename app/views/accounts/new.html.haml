@@ -1,5 +1,5 @@
 %h1 Add an account:
-= form_for @account do |f|
+= form_for :account, url: { action: 'create' } do |f|
   %div
     = f.label :email
     = f.text_field :email

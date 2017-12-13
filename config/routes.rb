@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
   get 'treasures/trash'
-  get 'sessions/login' => 'sessions#new'
-  post 'sessions/login' => 'sessions#create'
-  get 'sessions/logout' => 'sessions#destroy'
-  get 'accounts/register' => 'accounts#new'
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+  get '/register' => 'accounts#new'
+  post '/register' => 'accounts#create'
 
   resources :treasures
   resources :storages
   resources :welcome
-  resources :sessions
-  resources :accounts
 
   root 'welcome#index'
 
