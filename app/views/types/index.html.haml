@@ -1,0 +1,6 @@
+%h1 List of types:
+%ul
+  - @types.each do |t|
+    %li
+      =t.name
+%p= link_to 'Add new treasure', { action: 'new', controller: 'treasures' }

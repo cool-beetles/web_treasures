@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/register' => 'accounts#new'
   post '/register' => 'accounts#create'
+  get '/types' => 'types#index'
 
   resources :treasures
   resources :storages
