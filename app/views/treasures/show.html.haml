@@ -6,9 +6,6 @@
   %strong Type:
   = @treasure.type.try(:name)
   %br/
-  %strong Trashed:
-  = @treasure.trashed
-  %br/
   %strong Description:
   = @treasure.description
   %br/
@@ -16,6 +13,6 @@
   = @treasure.special_note
   %br/
 %hr/
-= link_to 'Back', { action: 'index' }
-= link_to 'Edit', { action: 'edit' }
-= link_to 'Delete', @treasure, method: :delete, data: { confirm: 'Are you sure?' }
+%p= link_to 'Back', { action: 'index' }
+%p= link_to 'Edit', { action: 'edit' }
+%p= link_to 'Delete', @treasure, method: :delete, data: { confirm: 'Are you sure?' }

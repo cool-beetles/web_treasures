@@ -6,6 +6,7 @@ class AccountsController < ApplicationController
 
   def create
     @account = Account.new(params_account)
+  
     if @account.save
       redirect_to treasures_path
     else
