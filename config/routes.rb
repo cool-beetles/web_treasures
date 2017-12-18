@@ -6,10 +6,14 @@ Rails.application.routes.draw do
   get '/register' => 'accounts#new'
   post '/register' => 'accounts#create'
   get '/types' => 'types#index'
+  get '/welcome' => 'welcome#index'
 
   resources :treasures
   resources :storages
-  resources :welcome
+  
+  scope '/treasures' do
+    resources :rentals, only: [:new, :create]
+  end
 
   root 'welcome#index'
 
