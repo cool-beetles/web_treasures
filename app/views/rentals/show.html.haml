@@ -1,0 +1,20 @@
+%h1 Details of rent:
+
+%div
+  %strong Treasure:
+  = @rental.treasure.try(:title)
+  %br/
+  %strong Type:
+  = @rental.treasure.type.try(:name)
+  %br/
+  %strong Start date:
+  = @rental.start_date
+  %br/
+  %strong Due date:
+  = @rental.due_date
+  %br/
+  %strong Returned:
+  - if @rental.return_date == nil
+    = link_to 'Mark as returned'
+  - else
+    = @rental.return_date

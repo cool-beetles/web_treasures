@@ -13,7 +13,7 @@
       %div
         = link_to 'My treasures', { action: 'index', controller: 'treasures' }
         = link_to 'My storages', { action: 'index', controller: 'storages' }
-        = link_to 'My rentals'
+        = link_to 'My rentals', { action: 'index', controller: 'rentals' }
         - if current_user.nil?
           = link_to 'Login', { action: 'new', controller: 'sessions'}
           = link_to 'Create an account', {action: 'new', controller: 'accounts'}
