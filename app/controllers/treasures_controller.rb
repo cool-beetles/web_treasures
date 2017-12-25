@@ -6,10 +6,7 @@ class TreasuresController < ApplicationController
   end
 
   def show
-    if @treasure != nil && @treasure = Treasure.find(params[:id])
-    else
-      render :index
-    end
+    @treasure = Treasure.find(params[:id])
   end
 
   def new
