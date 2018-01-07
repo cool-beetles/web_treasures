@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   get '/logout' => 'sessions#destroy'
   get '/register' => 'accounts#new'
   post '/register' => 'accounts#create'
-  get '/types' => 'types#index'
   get '/welcome' => 'welcome#index'
 
+  resources :types, only: [:index]
   resources :treasures
   resources :storages
   resources :rentals, only: [:index, :show, :update]
