@@ -10,7 +10,7 @@ Rails.application.routes.draw do
 
   resources :treasures
   resources :storages
-  resources :rentals
+  resources :rentals, only: [:index, :show, :update]
   
   scope '/treasures' do
     resources :rentals, only: [:new, :create]

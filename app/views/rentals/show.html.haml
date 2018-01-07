@@ -15,6 +15,6 @@
   %br/
   %strong Returned:
   - if @rental.return_date == nil
-    = link_to 'Mark as returned'
-  - else
+    = button_to 'Mark as return', @rental, { method: :put }
+  - else 
     = @rental.return_date

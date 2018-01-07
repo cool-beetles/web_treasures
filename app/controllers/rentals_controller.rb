@@ -24,6 +24,12 @@ class RentalsController < ApplicationController
   	end
   end
 
+  def update
+  	@rental = Rental.find(params[:id])
+  	@rental.return_date = Date.today
+    @rental.save
+  end
+
   private
 
   def params_rental

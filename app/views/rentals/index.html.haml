@@ -2,14 +2,15 @@
 - if @rentals.blank?
   %p There are not any lend treasures currently in the system.
 - else
+  %p= 'which lend:'
   - @rentals.each do |r|
     -if current_user.id == r.user_id
-      %p= 'which lend:'
       %ul
         %li
           %p= link_to r.treasure.title, r
-    - elsif current_user.id != r.user_id    	  
-      %p= 'which borrow:'
+  %p= 'which borrow:'
+  - @rentals.each do |r|
+    - if current_user.id != r.user_id    	  
       %ul
         %li
           %p= link_to r.treasure.title, r
