@@ -6,33 +6,33 @@ class RentalsController < ApplicationController
   end
 
   def show
-  	@rental = Rental.find(params[:id])
+    @rental = Rental.find(params[:id])
   end
 
   def new
-  	@rental = Rental.new
+    @rental = Rental.new
   end
 
   def create
-  	@rental = Rental.new(params_rental)
-  	@rental.start_date = Date.today
+    @rental = Rental.new(params_rental)
+    @rental.start_date = Date.today
 
-  	if @rental.save
-  	  redirect_to @rental
-  	else
-  	  render :new
-  	end
+    if @rental.save
+      redirect_to @rental
+    else
+      render :new
+    end
   end
 
   def update
-  	@rental = Rental.find(params[:id])
-  	@rental.return_date = Date.today
+    @rental = Rental.find(params[:id])
+    @rental.return_date = Date.today
     @rental.save
   end
 
   private
 
   def params_rental
-  	params.require(:rental).permit(:due_date, :user_id, :treasure_id)
+    params.require(:rental).permit(:due_date, :user_id, :treasure_id)
   end
 end
