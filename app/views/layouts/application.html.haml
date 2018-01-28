@@ -1,22 +1,36 @@
 !!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %meta{content: "text/html; charset=UTF-8", "http-equiv": "Content-Type"}/
     %title WebTreasures
     = csrf_meta_tags
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+    %link{href: "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css", rel: "stylesheet"}/
   %body
-    %div  
-      = render partial: 'sessions/flash_message'
-    %nav
-      %div
-        = link_to 'My treasures', { action: 'index', controller: 'treasures' }
-        = link_to 'My storages', { action: 'index', controller: 'storages' }
-        = link_to 'My rentals', { action: 'index', controller: 'rentals' }
-        - if current_user.nil?
-          = link_to 'Login', { action: 'new', controller: 'sessions'}
-          = link_to 'Create an account', {action: 'new', controller: 'accounts'}
-        - else
-          = link_to 'Logout', {action: 'destroy', controller: 'sessions'}
-    = yield
+    %nav.navbar.navbar-inverse
+      %div.container-fluid
+        %div.navbar-header
+          = link_to 'Web Treasures', { action: 'index', controller: 'treasures' }, class: 'navbar-brand'
+          %ul.nav.navbar-nav
+            %li
+              = link_to 'My treasures', { action: 'index', controller: 'treasures' }
+            %li
+              = link_to 'My storages', { action: 'index', controller: 'storages' }
+            %li
+              = link_to 'My rentals', { action: 'index', controller: 'rentals' }
+            - if current_user.nil?
+              %li
+                = link_to 'Login', { action: 'new', controller: 'sessions' }
+                %span.glyphicon.glyphicon-log-in
+              %li
+                = link_to 'Create an account', { action: 'new', controller: 'accounts' }
+                %span.glyphicon.glyphicon-user
+            - else
+              %li
+                = link_to 'Logout', { action: 'destroy', controller: 'sessions' }
+                %span.glyphicon.glyphicon-log-out
+    %div.container
+      %div.jumbotron
+        %div
+          = render partial: 'sessions/flash_message.html.haml'
+        = yield
