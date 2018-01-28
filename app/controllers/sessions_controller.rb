@@ -1,11 +1,8 @@
 class SessionsController < ApplicationController
   before_action :require_login, only: [:destroy]
 
-  def new
-  end
-
   def create
-   if @account = Account.authenticate(params[:session][:email], params[:session][:password_digest])
+    if @account = Account.authenticate(params[:session][:email], params[:session][:password_digest])
       session[:user_id] = @account.user_id
       flash[:success] = 'You are log in!'
       redirect_to treasures_path
