@@ -3,14 +3,51 @@
   %p There are not any lend treasures currently in the system.
 - else
   %p= 'which lend:'
-  - @rentals.each do |r|
-    -if current_user.id == r.user_id
-      %ul
-        %li
-          %p= link_to r.treasure.title, r
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Treasure
+        %th Type
+        %th Start date
+        %th Due date
+        %th Returned
+    - @rentals.each do |r|
+      -if current_user.id == r.user_id
+        %tbody
+          %tr
+            %td
+              = r.treasure.try(:title)
+            %td
+              = r.treasure.type.try(:name)
+            %td
+              = r.start_date
+            %td
+              = r.due_date
+            %td
+              = r.return_date
   %p= 'which borrow:'
-  - @rentals.each do |r|
-    - if current_user.id != r.user_id    	  
-      %ul
-        %li
-          %p= link_to r.treasure.title, r
+  %table.table.table-striped
+    %thead
+      %tr
+        %th Treasure
+        %th Type
+        %th Start date
+        %th Due date
+        %th Returned
+    - @rentals.each do |r|
+      - if current_user.id != r.user_id
+        %tbody
+          %tr
+            %td
+              = r.treasure.try(:title)
+            %td
+              = r.treasure.type.try(:name)
+            %td
+              = r.start_date
+            %td
+              = r.due_date
+            %td
+              - if r.return_date == nil
+                = button_to 'Mark as return', r, { method: :put }
+              - else 
+                = r.return_date
