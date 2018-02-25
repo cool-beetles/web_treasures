@@ -1,5 +1,5 @@
 %h1 List of treasures:
-- if @treasures.blank?
+- if @treasures == nil
   %p There are not any treasures currently in the system.
 - else
   %ul
@@ -7,7 +7,8 @@
       %li
         = link_to t.title, t
         = link_to t.type.name, t
-%p= link_to 'Add new treasure', { action: 'new' }
-%p= link_to 'Trashed treasures', { action: 'trash' }
-%p= link_to 'All available types', {action: 'index', controller: 'types'}
-%p= link_to 'Rent to someone', { action: 'new', controller: 'rentals' }
+%div.btn-group
+  %p= button_to('Add new treasure', { action: 'new' }, class: "btn-success")
+  %p= button_to('Trashed treasures', { action: 'trash' }, class: "btn-success")
+  %p= button_to('All available types', {action: 'index', controller: 'types'}, class: "btn-success")
+  %p= button_to('Rent to someone', { action: 'new', controller: 'rentals' }, class: "btn-success")

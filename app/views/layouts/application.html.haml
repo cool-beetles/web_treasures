@@ -21,16 +21,17 @@
             - if current_user.nil?
               %li
                 = link_to 'Login', { action: 'new', controller: 'sessions' }
-                %span.glyphicon.glyphicon-log-in
               %li
                 = link_to 'Create an account', { action: 'new', controller: 'accounts' }
-                %span.glyphicon.glyphicon-user
             - else
               %li
                 = link_to 'Logout', { action: 'destroy', controller: 'sessions' }
-                %span.glyphicon.glyphicon-log-out
     %div.container
       %div.jumbotron
         %div
           = render partial: 'sessions/flash_message.html.haml'
         = yield
+    %div.navbar.navbar-default.navbar-fixed-bottom
+      .container-fluid
+        %p.navbar-text= "© 2018 Copyright:" 
+        %a.navbar-text{ :href => "https://cool-beetles.github.io" } cool-beetles
