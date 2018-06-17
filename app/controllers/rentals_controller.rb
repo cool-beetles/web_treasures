@@ -2,7 +2,8 @@ class RentalsController < ApplicationController
   before_action :require_login
 
   def index
-    @rentals = Rental.all
+    @rentals = current_user.rentals
+    @lend_rentals = current_user.lend_rentals
   end
 
   def show
