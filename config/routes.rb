@@ -8,15 +8,14 @@ Rails.application.routes.draw do
   get '/welcome' => 'welcome#index'
 
   resources :types, only: [:index]
-  resources :treasures
-  resources :storages
-  resources :rentals, only: [:index, :update]
   
-  scope '/treasures' do
+  resources :treasures do
     resources :rentals, only: [:new, :create]
   end
 
+  resources :storages
+  resources :rentals, only: [:index, :update]
+
   root 'welcome#index'
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

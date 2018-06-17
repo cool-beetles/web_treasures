@@ -7,3 +7,6 @@ class User < ApplicationRecord
   validates :first_name, length: { minimum: 3 }
   validates :last_name, length: { minimum: 3 }
 end
+# has many through 
+# Rentals.where(treasure_id: Treasure.where(owner_id: current_user.id))
+# current_user.lend_rentals

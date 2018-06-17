@@ -6,4 +6,4 @@
     - @storages.each do |t|
       %li
         = link_to t.name, t
-%p= link_to 'Add new storage', { action: 'new' }
+%p= button_to('Add new storage', { action: 'new' }, class: "btn btn-success")

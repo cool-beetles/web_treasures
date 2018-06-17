@@ -9,7 +9,6 @@
         = link_to t.type.name, t
 %div.btn-toolbar
   %div.btn-group-horizontal
-    %p= button_to('Add new treasure', { action: 'new' }, class: "btn btn-success")
-    %p= button_to('Trashed treasures', { action: 'trash' }, class: "btn btn-success")
-    %p= button_to('All available types', {action: 'index', controller: 'types'}, class: "btn btn-success")
-    %p= button_to('Rent to someone', { action: 'new', controller: 'rentals' }, class: "btn btn-success")
+    %p= link_to('Add new treasure', new_treasure_path, class: "btn btn-success")
+    %p= link_to('Trashed treasures', treasures_trash_path, class: "btn btn-success")
+    %p= link_to('All available types', types_path, class: "btn btn-success")
