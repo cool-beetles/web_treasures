@@ -7,7 +7,7 @@
       %li
         = link_to t.title, t
         = link_to t.type.name, t
-        %p= link_to('Rent to someone', new_treasure_rental_path(t), class: "btn btn-success")
+        = link_to('Rent to someone', new_treasure_rental_path(t), class: "btn btn-default")
 %div.btn-toolbar
   %div.btn-group-horizontal
     %p= link_to('Add new treasure', new_treasure_path, class: "btn btn-success")

@@ -1,5 +1,5 @@
 %h1 List of rentals:
-- if @rentals.blank?
+- if @lend_rentals.blank?
   %p There are not any lend treasures currently in the system.
 - else
   %p= 'My treasures lend to someone:'
@@ -24,6 +24,9 @@
             = r.due_date
           %td
             = r.return_date
+-if @rentals.blank?
+  %p There are not any borrowed treasures currently in the system.
+-else            
   %p= 'My borrowed treasures:'
   %table.table.table-striped
     %thead

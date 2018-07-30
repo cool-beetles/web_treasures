@@ -16,10 +16,11 @@ class RentalsController < ApplicationController
 
   def create
     @rental = Rental.new(params_rental)
+    @rental.treasure = Treasure.find(params[:treasure_id])
     @rental.start_date = Date.today
 
     if @rental.save
-      redirect_to @rental
+      redirect_to rentals_path
     else
       render :new
     end
@@ -34,6 +35,6 @@ class RentalsController < ApplicationController
   private
 
   def params_rental
-    params.require(:rental).permit(:due_date, :user_id, :treasure_id)
+    params.require(:rental).permit(:due_date, :user_id)
   end
 end

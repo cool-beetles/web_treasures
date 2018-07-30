@@ -1,8 +1,5 @@
 %h1 Rent to someone
-= form_for @rental do |u|
-  %div
-    = u.label :treasure
-    = u.collection_select :treasure_id, current_user.treasures, :id, :title
+= form_for @rental, url: treasure_rentals_path(params[:treasure_id]) do |u|
   %div
     = u.label :user
     = u.collection_select :user_id, User.all, :id, :first_name
