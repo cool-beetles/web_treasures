@@ -24,6 +24,11 @@
             = r.due_date
           %td
             = r.return_date
+          %td
+            - if r.return_date == nil
+              = button_to 'Mark as return', r, { method: :put }
+            - else 
+              = r.return_date
 -if @rentals.blank?
   %p There are not any borrowed treasures currently in the system.
 -else            
@@ -47,8 +52,3 @@
             = r.start_date
           %td
             = r.due_date
-          %td
-            - if r.return_date == nil
-              = button_to 'Mark as return', r, { method: :put }
-            - else 
-              = r.return_date

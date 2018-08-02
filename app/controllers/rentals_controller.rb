@@ -30,6 +30,8 @@ class RentalsController < ApplicationController
     @rental = Rental.find(params[:id])
     @rental.return_date = Date.today
     @rental.save
+
+    redirect_to rentals_path
   end
 
   private
