@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe Treasure, type: :model do
+describe Rental, type: :model do
   let(:user)    { User.new(first_name: "John", last_name: "Smith") }
   let(:type)    { Type.new(name: "books") }
   let(:treasure)    { Treasure.new(owner: user, type: type, title: "My treasure") }
