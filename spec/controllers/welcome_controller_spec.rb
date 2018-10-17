@@ -1,10 +1,11 @@
 require "rails_helper"
 
-describe WelcomeController, type: :controller do
-  describe "GET index" do
-    it "has a 200 status code" do
+RSpec.describe WelcomeController, type: :controller do
+  describe "index" do
+    it "renders the welcome/index template" do
       get :index
-      expect(response.status).to eq(200)
+      expect(response).to render_template("welcome/index")
+      expect(response.body).to eq ""
     end
   end
 end
