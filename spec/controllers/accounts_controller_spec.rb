@@ -5,7 +5,7 @@ RSpec.describe AccountsController, type: :request do
     get "/register"
     expect(response).to render_template("accounts/new")
 
-    post "/register", params: { account: { email: "test@test12.pl", password: "adunia", password_confirmation: "adunia", user_attributes: { first_name: "Ada", last_name: "Ada" } } }
+    post "/register", params: { account: { email: "test@test123.pl", password: "test123", password_confirmation: "test123", user_attributes: { first_name: "test", last_name: "test" } } }
     expect(response).to redirect_to(treasures_path)
     follow_redirect!
   end
