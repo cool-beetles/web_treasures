@@ -21,7 +21,7 @@ RSpec.describe TreasuresController, type: :controller do
       it "should redirect to the treasures#show page" do
         treasure = Treasure.first
         get :show, params: { id: treasure.id }
-        expect(response.status).to render_template("treasures/show")
+        expect(response).to render_template("treasures/show")
       end
     end    
     
@@ -32,9 +32,28 @@ RSpec.describe TreasuresController, type: :controller do
       end
 
       it "should render treasures#new template" do
-      	get :new
+        get :new
         expect(response).to render_template("treasures/new")
       end
+    end
+
+    context "update existing treasure" do
+      it "save treasure" do
+        treasure = Treasure.first
+        put :update, params: { id: treasure.id, treasure: { title: "test321" } }
+        expect(assigns(:treasure)).to eq(treasure)
+      end
+
+      it "should render treasures#trash page" do
+      	get :index
+      	expect(response).to render_template("treasures/index")
+      end
+    end
+
+    it "destroy useless treasure" do
+    	treasure = Treasure.first
+      delete :destroy, params: { id: treasure.id }
+      expect(response).to redirect_to(treasures_path)
     end
   end
 
