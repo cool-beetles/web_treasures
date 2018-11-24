@@ -12,22 +12,29 @@ RSpec.describe TreasuresController, type: :controller do
       expect(response).to render_template("treasures/index")
     end
 
-    it "render treasures#show template" do
-      get :show, params: { id: 1 }
-      expect(response.staus).to eq(200)
-    end
-
-    it "render treasures#new template" do
-    end
-    
     context "create treasure with valid attributes" do
-      it "should save the new story in the database"
-      it "should redirect to the treasures#index page"
+      it "should save the new story in the database" do
+        post :create, params: { treasure: { title:"test123" } }
+        expect(response.status).to eq(200)
+      end
+
+      it "should redirect to the treasures#show page" do
+        treasure = Treasure.first
+        get :show, params: { id: treasure.id }
+        expect(response.status).to render_template("treasures/show")
+      end
     end    
     
     context "create treasure with invalid attributes" do
-      it "should not save the new story in the database"
-      it "should render treasures#new template"
+      it "should not save the new story in the database" do
+        post :create, params: { treasure: { type_id: "test123" } }
+        expect(assigns(:treasure)).to be_a_new(Treasure)
+      end
+
+      it "should render treasures#new template" do
+      	get :new
+        expect(response).to render_template("treasures/new")
+      end
     end
   end
 
@@ -35,6 +42,16 @@ RSpec.describe TreasuresController, type: :controller do
     it "redirect to login page" do
       get :index
       expect(response).to redirect_to(login_path) 
+    end
+
+    it "render treasures#new template" do
+      get :new
+      expect(response).to redirect_to(login_path)
+    end
+
+    it "render treasures#show template" do
+      get :show, params: { id: 0 }
+      expect(response).to redirect_to(login_path)
     end
   end
 end
