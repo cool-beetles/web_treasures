@@ -15,7 +15,7 @@ RSpec.describe TreasuresController, type: :controller do
     context "create treasure with valid attributes" do
       it "should save the new story in the database" do
         post :create, params: { treasure: { title:"test123" } }
-        expect(response.status).to eq(200)
+        expect(response.content_type).to eq "text/html"
       end
 
       it "should redirect to the treasures#show page" do
