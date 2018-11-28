@@ -45,13 +45,13 @@ RSpec.describe TreasuresController, type: :controller do
       end
 
       it "should render treasures#trash page" do
-      	get :index
-      	expect(response).to render_template("treasures/index")
+        get :index
+        expect(response).to render_template("treasures/index")
       end
     end
 
     it "destroy useless treasure" do
-    	treasure = Treasure.first
+      treasure = Treasure.first
       delete :destroy, params: { id: treasure.id }
       expect(response).to redirect_to(treasures_path)
     end
