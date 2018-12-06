@@ -1,9 +1,0 @@
-owners_account:
-  email: ada@ada.com
-  password_digest: <%= BCrypt::Password.create('secret123') %>
-  user: owner 
-
-friends_account:
-  email: ola@ola.com
-  password_digest: <%= BCrypt::Password.create('secret') %>
-  user: friend
